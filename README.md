@@ -9,9 +9,10 @@
 #### 2.	筛选变量
 &emsp;&emsp;因为是准入阶段的拒绝策略，所以非准入阶段的变量和与业务无关的全部不能使用。
 
-&emsp;&emsp;准入阶段的变量举例：
-&emsp;&emsp;als_d15_id_nbank_orgnum： 按身份证（id）查询 15天内_在非银机构（org）借贷的次数（num）
-&emsp;&emsp;als_m3_cell_nbank_inteday :  按手机号（cell）查询 3个月内_在非银机构xxx的间隔 （不是很懂）
+&emsp;&emsp;准入阶段的变量举例：</br></br>
+&emsp;&emsp;&emsp;&emsp;als_d15_id_nbank_orgnum： 按身份证（id）查询 15天内_在非银机构（org）借贷的次数（num）</br>
+&emsp;&emsp;&emsp;&emsp;als_m3_cell_nbank_inteday :  按手机号（cell）查询 3个月内_在非银机构xxx的间隔 （不是很懂）</br></br>
+
 			
 &emsp;&emsp;非准入阶段的变量包括：max_ovd（历史最大逾期天数）、mob（账龄）、repay_dt（还款日）、利率、分期期数等等。
 
