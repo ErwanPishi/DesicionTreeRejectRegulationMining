@@ -27,12 +27,12 @@
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img width="417" alt="image" src="https://github.com/ErwanPishi/DesicionTreeRejectRegulationMining-/assets/136585409/89589a2e-042f-45cb-80d2-b67472d7bc36">
 
 #### 4. 变量准入
-&emsp;&emsp;采用IV值靠前的变量3个进入策略，分箱后必须要满足bad_rate从业务逻辑上单调，构造出三层或四层的决策树模型，人工暴力嗯点，缺失值最好单独分成一箱
+&emsp;&emsp;采用IV值靠前的变量10个以内进入策略（不一定全用，决策树的结构最多三层即可）分箱后必须要满足bad_rate从业务逻辑上单调，构造出三层或四层的决策树模型，人工暴力嗯点，缺失值最好单独分成一箱 FICO@MODEL_BUILDER你tm能不能敢再给爷卡一点
 
 #### 5. 具体结构：
 &emsp;&emsp;num_split  from 4 to 6，不要二叉，二叉的话限制太大，需要分很多层</br></br>
 &emsp;&emsp;max_depth = 4</br></br>
 &emsp;&emsp;所以最后得到的leaf_nodes最多有6^3 = 216个，最后要把这216个nodes分别打上treatment ，bad_rate相近的是一个treatment</br></br>
-&emsp;&emsp;最后分成5箱就合适了，箱与箱之间badrate差距至少要在1%以上</br>
+&emsp;&emsp;最后把leaf_nodes合并成5箱就合适了，箱与箱之间badrate差距至少要在1%以上</br>
 
 
