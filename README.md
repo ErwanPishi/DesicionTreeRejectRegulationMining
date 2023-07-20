@@ -17,7 +17,7 @@
 			
 &emsp;&emsp;非准入阶段的变量包括：max_ovd（历史最大逾期天数）、mob（账龄）、repay_dt（还款日）、利率、分期期数等等。
 
-&emsp;&emsp;与业务无关的变量包括：crdt_appl_dt（申请年月日），In_distr_dt（放款日）, crtf_num ( 身份号码 )、serial_num( 流水号 )，crdt_seq_id、dubil_num( 订单号 )
+&emsp;&emsp;与业务无关的变量包括：crdt_appl_dt（申请年月日），In_distr_dt（放款日）, crtf_num ( 身份号码 )、serial_num( 流水号 )，crdt_seq_id、dubil_num( 订单号 )</br></br>
 &emsp;&emsp;一点体会：看到变量为空时不能马上归为缺失值，这时候需要查看数据词典，因为有可能变量为空并非代表没有查得，是代表该变量的记录为0。如7天内XX申请次数，空则代表7天内XX申请次数=0
 
 #### 3.	验证方式：
