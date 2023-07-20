@@ -22,7 +22,7 @@
 
 #### 3.	验证方式：
 &emsp;&emsp;从样本中划出train和test 使用OOT（out of time）验证，需要采用申请日期appl_dt排序，比例7:3即可
-观察PSI值
+观察PSI值 注意PSI值是看样本的分布，先计算train、test样本落在不同标签内的分布比例 以test作为actual ，train作为expected  计算PSI值
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img width="417" alt="image" src="https://github.com/ErwanPishi/DesicionTreeRejectRegulationMining-/assets/136585409/89589a2e-042f-45cb-80d2-b67472d7bc36">
 
