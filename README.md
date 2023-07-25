@@ -28,7 +28,9 @@
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img width="417" alt="image" src="https://github.com/ErwanPishi/DesicionTreeRejectRegulationMining-/assets/136585409/89589a2e-042f-45cb-80d2-b67472d7bc36">
 
 #### 4. 变量准入
-&emsp;&emsp;采用IV值靠前的变量10个以内进入策略（不一定全用，决策树的结构最多三层即可 分箱后必须要满足bad_rate从业务逻辑上单调(但是如果变量的PSI够低，也可以在业务逻辑上反着，变量PSI够低的话代表在这一段时间内很稳定，反了就反了嘛，反正结论是稳健的），构造出三层或四层的决策树模型，人工暴力嗯点，缺失值最好单独分成一箱 FICO@MODEL_BUILDER你tm能不能敢再给爷卡一点
+&emsp;&emsp;采用IV值靠前的变量10个以内进入策略（不一定全用，决策树的结构最多三层即可 分箱后必须要满足bad_rate从业务逻辑上单调(但是如果变量的PSI够低，也可以在业务逻辑上反着，变量PSI够低的话代表在这一段时间内很稳定，反了就反了嘛，反正结论是稳健的），构造出三层或四层的决策树模型，人工暴力嗯点，缺失值最好单独分成一箱 FICO@MODEL_BUILDER你tm能不能敢再给爷卡一点</br>
+#### 4.1举例
+&emsp;&emsp;对于最近12个月内按手机号查询的申请xx贷的次数 在实际业务当中发现次数越多反而客群表现更好，次数越少。其合理的一种原因即为 可能此产品在各种贷款产品中不占优势，他一来就找到此产品（申请xx贷次数少），说明极大可能是有ber来、被黑中介介绍过来，因此次数越少反而越有问题。
 
 #### 5. 具体结构：
 &emsp;&emsp;num_split  from 4 to 6，不要二叉，二叉的话限制太大，需要分很多层</br></br>
