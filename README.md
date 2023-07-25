@@ -23,12 +23,12 @@
 #### 3.	验证方式：
 &emsp;&emsp;从样本中划出train和test 使用OOT（out of time）验证，需要采用申请日期appl_dt排序，比例7:3即可
 观察PSI值 注意PSI值是看样本的分布，先计算train、test样本落在不同标签内的分布比例 以test作为actual，train作为expected  计算PSI值
-但是在反欺诈阶段，PSI是否稳定不是特别重要，因为会开发很多个（几十上百个规则），你这一个规则可能会很快失效（暂时弃用，样本是每天都在更新，等哪天它又有法了再启用）但是没关系 我们还有一大堆其他的规则。更重要的是准确性（LIFT值），哪个最好用哪个
+但是在反欺诈阶段，PSI是否稳定不是特别重要，可解释性也不是特别重要因为会开发很多个（几十上百个规则），你这一个规则可能会很快失效（暂时弃用，样本是每天都在更新，等哪天它又有法了再启用）但是没关系 我们还有一大堆其他的规则。更重要的是准确性（LIFT值），哪个最好用哪个
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img width="417" alt="image" src="https://github.com/ErwanPishi/DesicionTreeRejectRegulationMining-/assets/136585409/89589a2e-042f-45cb-80d2-b67472d7bc36">
 
 #### 4. 变量准入
-&emsp;&emsp;采用IV值靠前的变量10个以内进入策略（不一定全用，决策树的结构最多三层即可）分箱后必须要满足bad_rate从业务逻辑上单调(但是如果变量的PSI够低，也可以在业务逻辑上反着，变量PSI够低的话代表在这一段时间内很稳定，反了就反了嘛，反正结论是稳健的），构造出三层或四层的决策树模型，人工暴力嗯点，缺失值最好单独分成一箱 FICO@MODEL_BUILDER你tm能不能敢再给爷卡一点
+&emsp;&emsp;采用IV值靠前的变量10个以内进入策略（不一定全用，决策树的结构最多三层即可 分箱后必须要满足bad_rate从业务逻辑上单调(但是如果变量的PSI够低，也可以在业务逻辑上反着，变量PSI够低的话代表在这一段时间内很稳定，反了就反了嘛，反正结论是稳健的），构造出三层或四层的决策树模型，人工暴力嗯点，缺失值最好单独分成一箱 FICO@MODEL_BUILDER你tm能不能敢再给爷卡一点
 
 #### 5. 具体结构：
 &emsp;&emsp;num_split  from 4 to 6，不要二叉，二叉的话限制太大，需要分很多层</br></br>
@@ -36,6 +36,9 @@
 &emsp;&emsp;所以最后得到的leaf_nodes最多有6^3 = 216个，最后要把这216个nodes分别打上treatment ，bad_rate相近的是一个treatment</br></br>
 &emsp;&emsp;最后把leaf_nodes合并成5箱就合适了，箱与箱之间badrate差距至少要在1%以上</br>
 
+#### 6. 暴力破解：
+&emsp;&emsp;如果是野蛮生长版决策树可以不用关注解释性的问题，只需要验证模型的稳定性，也即验证，在train上badrate最高的20箱，是否在test上面也满足相同的趋势，其他的就不管了</br></br>
+&emsp;&emsp;
 #### 6. UAT (User Acceptance Test) ?????
 
 
