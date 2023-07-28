@@ -5,7 +5,7 @@ import json
 x = input("请输入路径：（不包括后缀名）")
 filepath1 = '{}.json'.format(x)
 filepath2 = '{}.py'.format(x)
-with open(filepath1, 'r', encoding='utf8')as fp:
+with open(filepath1, 'r', encoding='utf8') as fp:
     json_data = json.load(fp)
 
 with open(filepath2, 'w', encoding='utf8') as fpp:
