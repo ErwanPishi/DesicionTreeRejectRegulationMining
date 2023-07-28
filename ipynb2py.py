@@ -1,3 +1,6 @@
+'''
+把ipynb文件直接转成py文件
+'''
 import json
 x = input("请输入路径：（不包括后缀名）")
 filepath1 = '{}.json'.format(x)
